@@ -1,8 +1,8 @@
 package com.example.apiofthronesproject.model;
 
 public class User {
+    private int id;
     private String usuario;
-
     private String contrasena;
 
     public User(){}
@@ -11,6 +11,10 @@ public class User {
         this.usuario = usuario;
         this.contrasena = contrasena;
     }
+
+    public int getId() {return id;}
+
+    public void setId(int id) {this.id = id;}
 
     public String getUsuario() {
         return usuario;
@@ -24,7 +28,7 @@ public class User {
         return contrasena;
     }
 
-    public void setContrasena(String contraseña) {
-        this.contrasena = contraseña;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 }
