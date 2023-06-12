@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="@string/txtPreferencesTitulo">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="notificaciones"
+            android:textColor="@color/white"
+            android:title="@string/tbntPreferencesNotificaciones"
+            android:summary="@string/summaryPreferencesNotificaciones"></SwitchPreference>
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="inicioSesion"
+            app:title="@string/cbxPreferencesSesion"
+            android:summary="@string/summaryPreferencesSesion"></CheckBoxPreference>
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,8 +1,10 @@
 package com.example.apiofthronesproject.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +12,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.apiofthronesproject.R;
+import com.example.apiofthronesproject.fragment.SettingsFragment;
 import com.example.apiofthronesproject.model.User;
+import com.example.apiofthronesproject.util.SavedPreferences;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -19,11 +23,24 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnLogin;
     private Button btnRegister;
     private CtrlUser cu;
+    private boolean notificaciones;
+    private boolean sesion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        notificaciones = preferences.getBoolean("notificaciones", true);
+        sesion = preferences.getBoolean("inicioSesion", true);
+
+        if(sesion == true){
+            Intent iMain = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(iMain);
+            finish();
+        }
+
         txtUsuario = (EditText) findViewById(R.id.txtUsuario);
         txtContrasena = (EditText) findViewById(R.id.txtContrasena);
         btnLogin = (Button) findViewById(R.id.btnLogin);
@@ -73,5 +90,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     //Método auxiliar usado para crear toast cada vez que sea necesario
-    public void makeToast(String text) { Toast.makeText(this, text, Toast.LENGTH_LONG).show(); }
+    public void makeToast(String text) {
+        if(notificaciones == true){
+            Toast.makeText(this, text, Toast.LENGTH_LONG).show();
+        }
+    }
 }

@@ -1,3 +1,36 @@
 <resources>
-    <string name="app_name">ApiOfThronesProject</string>
+    //Nombre aplicación
+    <string name="app_name">Api Of Thrones</string>
+
+    //ActivityLogin
+    <string name="txtLoginTitulo">API OF THRONES</string>
+    <string name="hintLoginUsuario">User</string>
+    <string name="hintLoginContrasena">Password</string>
+    <string name="btnLoginEntrar">ENTRAR</string>
+    <string name="btnLoginRegistrarse">REGISTRARSE</string>
+
+    //MainActivity
+    <string name="txtMain1">¡Bienvenido Guerrero/a!</string>
+    <string name="txtMain2">¿Preparado para consultar?</string>
+    <string name="txtMain3">Todo sobre Juego de Tronos</string>
+
+    //ItemListPersonajes
+    <string name="txtListPersonajesNombre">Nombre</string>
+
+    //CharacterActivity
+    <string name="txtCharacterNombre">Nombre: </string>
+    <string name="txtCharacterTitulo">Titulo: </string>
+    <string name="txtCharacterFamilia">Familia: </string>
+
+    //Menú flotante
+    <string name="mnuAjustes">Ajustes</string>
+    <string name="mnuSalir">Salir</string>
+    <string name="mnuSesion">Cerrar Sesión</string>
+
+    //Preferences
+    <string name="txtPreferencesTitulo">AJUSTES</string>
+    <string name="tbntPreferencesNotificaciones">Notificaciones Flotantes</string>
+    <string name="cbxPreferencesSesion">Mantener sesión iniciada</string>
+    <string name="summaryPreferencesNotificaciones">Aparecen notificaciones en pantalla.</string>
+    <string name="summaryPreferencesSesion">Se guardan los datos de inicio de sesión.</string>
 </resources>

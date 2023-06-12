@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mnuAjustes"
+        android:title="@string/mnuAjustes" />
+    <item
+        android:id="@+id/mnuSalir"
+        android:title="@string/mnuSalir" />
+    <item
+        android:id="@+id/mnuSesion"
+        android:title="@string/mnuSesion" />
+</menu>

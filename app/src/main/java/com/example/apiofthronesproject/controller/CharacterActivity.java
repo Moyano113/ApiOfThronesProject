@@ -35,6 +35,8 @@ public class CharacterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         imgPersonajeDetalle = (ImageView) findViewById(R.id.imgPersonajeDetalle);
         txtNombre = (TextView) findViewById(R.id.txtNombre);
         txtTitulo = (TextView) findViewById(R.id.txtTitulo);
