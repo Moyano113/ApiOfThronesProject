@@ -21,6 +21,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import es.dmoral.toasty.Toasty;
+
 public class CharacterActivity extends AppCompatActivity {
     private ImageView imgPersonajeDetalle;
     private TextView txtNombre;
@@ -34,6 +36,8 @@ public class CharacterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         imgPersonajeDetalle = (ImageView) findViewById(R.id.imgPersonajeDetalle);
         txtNombre = (TextView) findViewById(R.id.txtNombre);

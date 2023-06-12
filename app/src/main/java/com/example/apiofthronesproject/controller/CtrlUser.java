@@ -23,7 +23,7 @@ public class CtrlUser {
     public CtrlUser(@NonNull Context c){
         this.c = c;
         bd = c.openOrCreateDatabase(bdName, c.MODE_PRIVATE, null);
-        bd.execSQL("CREATE TABLE IF NOT EXISTS USER(ID INTEGER PRIMARY KEY AUTOINCREMENT, USER TEXT, PASSWORD TEXT)");
+        bd.execSQL("CREATE TABLE IF NOT EXISTS USUARIOS(ID INTEGER PRIMARY KEY AUTOINCREMENT, USER TEXT, PASSWORD TEXT)");
         u = new User();
     }
 
@@ -31,7 +31,7 @@ public class CtrlUser {
     //coinciden con alguien registrado en la base de datos.
     public int validate(String usuario, String contrasena){
         int key = 1;
-        Cursor cr = bd.rawQuery("SELECT * FROM USER", null);
+        Cursor cr = bd.rawQuery("SELECT * FROM USUARIOS", null);
         if(cr != null && cr.moveToFirst()){
             do{
                 if(cr.getString(1).equals(usuario) && cr.getString(2).equals(contrasena)){
@@ -75,7 +75,7 @@ public class CtrlUser {
             ContentValues cv = new ContentValues();
             cv.put("USER", u.getUsuario());
             cv.put("PASSWORD", u.getContrasena());
-            key = bd.insert("USER", null, cv) > 0;
+            key = bd.insert("USUARIOS", null, cv) > 0;
         }
 
         return key;
@@ -86,7 +86,7 @@ public class CtrlUser {
     public ArrayList<User> listAllUsers() {
         ArrayList<User> list = new ArrayList<User>();
         list.clear();
-        Cursor cr = bd.rawQuery("SELECT * FROM USER", null);
+        Cursor cr = bd.rawQuery("SELECT * FROM USUARIOS", null);
         if(cr != null && cr.moveToFirst()){
             do{
                 User u = new User();

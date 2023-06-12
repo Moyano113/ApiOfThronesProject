@@ -1,11 +1,21 @@
 package com.example.apiofthronesproject.io;
 
+import android.content.Context;
+import android.content.DialogInterface;
+
+import androidx.appcompat.app.AlertDialog;
+
+import com.example.apiofthronesproject.controller.LoginActivity;
+import com.example.apiofthronesproject.controller.MainActivity;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import es.dmoral.toasty.Toasty;
 
 public class HttpConnectAOT {
     //URL base
@@ -34,14 +44,18 @@ public class HttpConnectAOT {
                 content = sb.toString();
                 reader.close();
             }
+
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }finally {
-            if (http != null) http.disconnect();
+            if (http != null){
+                http.disconnect();
+            }
         }
 
         return content;
     }
+
 }
