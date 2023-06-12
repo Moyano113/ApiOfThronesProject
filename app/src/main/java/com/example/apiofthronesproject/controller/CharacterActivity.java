@@ -21,6 +21,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import es.dmoral.toasty.Toasty;
+
 public class CharacterActivity extends AppCompatActivity {
     private ImageView imgPersonajeDetalle;
     private TextView txtNombre;
