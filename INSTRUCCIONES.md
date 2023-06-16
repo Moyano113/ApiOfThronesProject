@@ -1,6 +1,8 @@
 # ApiOfThrones
 *Aplicación andriod de informacion sobre Juego de Tronos*
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+- Para registrarse no hay una pantalla adicional si no que en la misma de inicio de sesión debes poner el usuario y la contraseña y pulsar el botón 'REGISTRARSE'.
+
 - Para eliminar elementos de la lista se han de deslizar hacia la derecha.
 
 - He dejado comentados los Toast porque la biblioteca externa que uso es para hacerlos mas bonitos, pero he querido dejar los normales para que conste que se hacerlos sin usar nada externo.
