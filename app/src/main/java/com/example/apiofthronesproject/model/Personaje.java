@@ -1,5 +1,7 @@
 package com.example.apiofthronesproject.model;
 
+//Clase que contiene los métodos y campos que definen un personaje donde guardaremos los resultados
+//que obtengamos de la API
 public class Personaje {
     private String id;
     private String nombre;

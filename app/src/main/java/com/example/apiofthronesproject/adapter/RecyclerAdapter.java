@@ -26,11 +26,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     private CircularProgressDrawable cpd;
     View.OnClickListener onClickListener;
 
+    //Constructor de la clase
     public RecyclerAdapter(Context c) {
         this.c = c;
         this.listPersonajes = new ArrayList();
     }
 
+    //Método encargado de añadir un nuevo personaje a la lista
     public void addPersonaje(Personaje p){
         listPersonajes.add(p);
         this.notifyDataSetChanged();
@@ -40,6 +42,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolderPersonajes onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        //Asigno el view holder al que he personalizado abajo
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_personajes,parent,false);
 
         v.setOnClickListener(onClickListener);
@@ -52,12 +55,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderPersonajes holder, int position) {
+        //Cargo el CircularProgressDrawable y lo configuro para que aparezca un circulito dando vueltas
+        //mientras se carga el elemento de la lista
         cpd = new CircularProgressDrawable(c);
         cpd.setStrokeWidth(10f);
         cpd.setStyle(CircularProgressDrawable.LARGE);
         cpd.setCenterRadius(30f);
         cpd.start();
 
+        //Asigno el campo nombre al elemento de la vista txtNombre
         Personaje p = listPersonajes.get(position);
         holder.txtNombre.setText(p.getNombre());
         Glide.with(c).load(p.getImgUrl()).placeholder(cpd).error(R.mipmap.ic_launcher_round).into(holder.imgPersonaje);
@@ -70,6 +76,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     public class ViewHolderPersonajes extends RecyclerView.ViewHolder{
 
+        //Asigno la parte gráfica en donde se cargarán los datos del recycler view
         TextView txtNombre;
         ImageView imgPersonaje;
 

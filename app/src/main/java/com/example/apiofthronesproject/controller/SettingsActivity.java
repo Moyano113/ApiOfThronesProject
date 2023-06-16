@@ -14,8 +14,10 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        //Habilita la flechita en la parte superior para volver atrás
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        //Se inserta el Fragment ya creado en la clase 'SettingsFragment'
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.settings_container, new SettingsFragment())

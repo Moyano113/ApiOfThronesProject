@@ -37,16 +37,11 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        //Se cargan las preferencias y se asignan sus respectivos valores a las variables 'sesion'
+        //y 'notificaciones'
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         notificaciones = preferences.getBoolean("notificaciones", true);
         sesion = preferences.getBoolean("inicioSesion", true);
-
-        if (sesion == true) {
-            Intent iMain = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(iMain);
-            finish();
-        }
 
         txtUsuario = (EditText) findViewById(R.id.txtUsuario);
         txtContrasena = (EditText) findViewById(R.id.txtContrasena);
@@ -54,6 +49,14 @@ public class LoginActivity extends AppCompatActivity {
         btnRegister = (Button) findViewById(R.id.btnRegister);
         cu = new CtrlUser(getApplicationContext());
         ma = new MainActivity();
+
+        //Si "Mantener sesion iniciada" está activo directamente pasa a la MainActivity
+        if (sesion == true) {
+            Intent iMain = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(iMain);
+            finish();
+        }
+
 
 
         //Botón "ENTRAR"
@@ -63,12 +66,15 @@ public class LoginActivity extends AppCompatActivity {
                 String usuario = txtUsuario.getText().toString();
                 String contrasena = txtContrasena.getText().toString();
 
+                //Comrpueba que no haya campos vacíos
                 if ((usuario.equals("") || contrasena.equals(""))) {
                     //makeToast("Campos vacíos");
                     createToasty("warning", LoginActivity.this, "Campos vacíos");
+                //Mediante la base de datos comprueba que la contraseña y el usuario sean correctos
                 } else if (cu.validate(usuario, contrasena) == 0) {
                     //makeToast("Sesión iniciada");
                     createToasty("success", LoginActivity.this, "Sesión iniciada");
+                    //Pasa a la MainActivity
                     Intent iMain = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(iMain);
                     finish();

@@ -1,5 +1,7 @@
 package com.example.apiofthronesproject.model;
 
+//Clase que contiene los métodos y campos que definen al usuario de la aplicaion donde guardaremos
+// los datos de éste que se usaran para hacer operaciones en la base de datos
 public class User {
     private int id;
     private String usuario;

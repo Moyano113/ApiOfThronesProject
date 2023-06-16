@@ -18,7 +18,7 @@ import java.net.URL;
 import es.dmoral.toasty.Toasty;
 
 public class HttpConnectAOT {
-    //URL base
+    //URL base de la API
     private static final String URL_BASE = "https://thronesapi.com/api/v2";
 
     public static String getRequest(String endpoint){
